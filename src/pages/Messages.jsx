@@ -4,7 +4,7 @@ import MessagesIcon from '../assets/icons/svgs/MessagesIcon';
 import SELECT_OPTIONS from '../Constants';
 
 import PrevIcon from '../assets/prevIcon.svg?react';
-import NextIcon from '../assets/NextIcon.svg?react';
+import NextIcon from '../assets/nextIcon.svg?react';
 import MessageCard from '../components/Messages/MessageCard';
 
 import MessageDetails from '../components/popup/MessageDetails';
