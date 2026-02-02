@@ -1,6 +1,6 @@
-import {Info} from 'lucide-react';
-import {useForm} from 'react-hook-form';
-import {InfoIcon} from '../../assets/icons/svgs';
+import { Info } from 'lucide-react';
+import { useForm } from 'react-hook-form';
+import { InfoIcon } from '../../assets/icons/svgs';
 import Button from '../shared/Button';
 import DatePickerInput from '../shared/DatePickerInput';
 import PopupWrapper from '../shared/PopupWrapper';
@@ -9,26 +9,26 @@ import TextArea from '../shared/TextArea';
 import TextInput from '../shared/TextInput';
 
 const toOptions = [
-  {label: 'Ahmad', value: 'ahmad'},
-  {label: 'Sajid', value: 'sajid'},
-  {label: 'Saad', value: 'saad'},
+  { label: 'Ahmad', value: 'ahmad' },
+  { label: 'Sajid', value: 'sajid' },
+  { label: 'Saad', value: 'saad' },
 ];
 
 const dateFields = [
-  {label: 'From Date', name: 'fromDate'},
-  {label: 'To Date', name: 'toDate'},
+  { label: 'From Date', name: 'fromDate' },
+  { label: 'To Date', name: 'toDate' },
 ];
 
 const titleClassName = 'mt-6 mb-2.5 mr-2 text-sm flex text-text-light-gray';
 const labelClassName = 'text-sm! font-normal! text-text-light-gray!';
 
-function SendCCDA({open, onClose}) {
+function SendCCDA({ open, onClose }) {
   const {
     register,
     control,
     handleSubmit,
     reset,
-    formState: {isSubmitting, isValid, errors},
+    formState: { isSubmitting, isValid, errors },
   } = useForm({
     mode: 'onChange',
     defaultValues: {
@@ -64,7 +64,7 @@ function SendCCDA({open, onClose}) {
           <h5 className="font-semibold text-text-gray">Date Filter</h5>
 
           <div className="mt-4 flex gap-6">
-            {dateFields.map(({label, name}) => (
+            {dateFields.map(({ label, name }) => (
               <div key={name} className="flex-1">
                 <DatePickerInput
                   label={label}
@@ -109,7 +109,7 @@ function SendCCDA({open, onClose}) {
               control={control}
               register={register}
               showAsteriks={false}
-              className="max-h-11! border-border!"
+              selectClassName="max-h-11! border-border!"
               labelClassName={labelClassName}
             />
           </div>
@@ -128,7 +128,7 @@ function SendCCDA({open, onClose}) {
           name="subject"
           control={control}
           register={register}
-          rules={{required: 'Subject is required'}}
+          rules={{ required: 'Subject is required' }}
           error={errors.subject}
           placeholder="Enter Subject"
           placeholderAsteric={false}
@@ -142,7 +142,7 @@ function SendCCDA({open, onClose}) {
           label="Message"
           name="message"
           control={control}
-          rules={{required: 'Message is required'}}
+          rules={{ required: 'Message is required' }}
           error={errors.message}
           placeholder="Enter your message"
           wrapperClassName="mt-6!"

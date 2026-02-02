@@ -5,11 +5,22 @@ import RequestedAppointments from '../components/Appointments/RequestedAppointme
 import SELECT_OPTIONS from '../Constants';
 import WarningMessage from '../components/popup/WarningMessage';
 import PrevIcon from '../assets/prevIcon.svg?react';
-import NextIcon from '../assets/nextIcon.svg?react';
+import NextIcon from '../assets/NextIcon.svg?react';
+import RequestAppointment from '../components/popup/RequestAppointment';
+import OfficeVisitScheduleAppointment from '../components/popup/OfficeVisitScheduleAppointment';
+
+import ScheduleAppointment from '../components/popup/ScheduleAppointment';
+
 
 const Appointments = () => {
 
 	const [appointmentType, setAppointmentType] = useState('Requested');
+
+	const [isRequestedAppointments, setIsRequestedAppointments] = useState(false);
+	const [isTeleVisitAppointments, setIsTeleVisitAppointments] = useState(false);
+	const [isScheduleAppointments, setIsScheduleAppointments] = useState(false);
+
+
 	const [warning, setWarning] = useState(false);
 	const [selectedAppointment, setSelectedAppointment] = useState(null);
 	const { requestedAppointmentsData, upCommingAppointmentsData, pastAppointmentsData } = SELECT_OPTIONS;
@@ -39,6 +50,15 @@ const Appointments = () => {
 		console.log("the selected appointment is", appointment);
 	}
 
+	const ShowCalenderPopup = (show) => {
+		if (show) {
+			setIsScheduleAppointments(false);
+			setIsTeleVisitAppointments(true);
+		} else {
+			setIsScheduleAppointments(false);
+		}
+	}
+
 
 	return (
 		<div className='min-h-screen relative flex flex-col' ref={warningRef}>
@@ -48,6 +68,11 @@ const Appointments = () => {
 				</div>
 			}
 
+			<RequestAppointment open={isRequestedAppointments} onClose={() => setIsRequestedAppointments(false)} />
+
+			<ScheduleAppointment open={isScheduleAppointments} onClose={(show) => ShowCalenderPopup(show)} />
+
+			<OfficeVisitScheduleAppointment open={isTeleVisitAppointments} onClose={() => setIsTeleVisitAppointments(false)} />
 
 			<div className="flex gap-2 justify-between bg-[var(--color-light-gray)] items-center p-4 border-b border-gray-300 p-4 mt-12 overflow-x-auto scrollbar-hide">
 				<div>
@@ -55,9 +80,9 @@ const Appointments = () => {
 						tabs.map(({ title, index }) => (
 							<button
 								key={index}
-								className={` ${buttonclass} ${appointmentType === title ? ' font-bold text-[var(--color-blue)] bg-white text-xs sm:text-sm md:text-base ' : ''}`}
+								className={` ${buttonclass} ${appointmentType === title ? ' font-bold text-blue bg-white text-xs sm:text-sm md:text-base ' : ''}`}
 								onClick={() => setAppointmentType(title)}> {title}
-								<span className={` ${spanclass} ${appointmentType === title ? ' bg-[var(--color-light-blue)]' : 'bg-white'} text-xs sm:text-sm md:text-base`}>8</span>
+								<span className={` ${spanclass} ${appointmentType === title ? ' bg-light-blue' : 'bg-white'} text-xs sm:text-sm md:text-base`}>8</span>
 							</button>
 						))
 					}
@@ -66,7 +91,8 @@ const Appointments = () => {
 					<div className='flex items-center '>
 						<ReloadIcon className="w-4 h-4 cursor-pointer" />
 					</div>
-					<button className=" w-full sm:w-auto px-4 py-2 bg-blue-500 text-white cursor-pointer rounded-full text-xs sm:text-sm md:text-base"> Request Appointment </button>
+					<button className=" w-full sm:w-auto px-4 py-2 bg-blue-500 text-white cursor-pointer rounded-full text-xs sm:text-sm md:text-base" onClick={() => setIsRequestedAppointments(true)}> Request Appointment </button>
+					<button className=" w-full sm:w-auto px-4 py-2 bg-blue-500 text-white cursor-pointer rounded-full text-xs sm:text-sm md:text-base" onClick={() => setIsScheduleAppointments(true)}>  Schedule Appointment </button>
 				</div>
 			</div>
 
@@ -78,8 +104,8 @@ const Appointments = () => {
 			<div className="flex items-center justify-between mt-6 text-sm text-gray-60 mt-auto mb-6">
 
 				<div className='pl-5'>
-					Showing <span className="text[var(--color-gray-text)]">1–6</span> of{" "}
-					<span className="text[var(--color-gray-text)]">6</span> messages
+					Showing <span className="text-gray-text">1–6</span> of{" "}
+					<span className="text-gray-text">6</span> messages
 				</div>
 
 				<div className="flex items-center gap-2 px-6">

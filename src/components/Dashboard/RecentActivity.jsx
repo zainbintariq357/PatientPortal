@@ -72,15 +72,15 @@ const RecentActivity = () => {
 					RecentActivities.map((activity, index) => {
 						return (
 							<article key={index} className='flex flex-row items-center gap-4 pl-4 py-3'>
-								<div className='bg-[var(--color-gray-50)] py-2 px-2 rounded-lg'>
+								<div className='bg-gray-50 py-2 px-2 rounded-lg'>
 									{
-										activity.type === "lab" ? <LabIcon className="text-[var(--color-blue)]" /> : activity.type === "message" ? <CommentIcon className="text-[var(--color-text-green)]" /> : <CalenderIcon className="text-[var(--color-brand-blue)]" />
+										activity.type === "lab" ? <LabIcon className="text-blue" /> : activity.type === "message" ? <CommentIcon className="text-green" /> : <CalenderIcon className="text-brand-blue" />
 									}
 								</div>
 								<div className='flex flex-col'>
-									<h3 className='text-base text-[var(--color-black)]'>{activity.label}</h3>
-									<p className='text-[var(--color-text-light-gray)] text-sm' >{activity.detail}</p>
-									<p className='text-[var(--color-gray-text)] text-xs'>{activity.time}</p>
+									<h3 className='text-base text-black'>{activity.label}</h3>
+									<p className='text-text-light-gray text-sm' >{activity.detail}</p>
+									<p className='text-gray-text text-xs'>{activity.time}</p>
 								</div>
 							</article>
 						)
@@ -92,12 +92,12 @@ const RecentActivity = () => {
 				<article className="bg-white p-3 rounded flex flex-col gap-2 min-h-[9rem]">
 					<header className="flex justify-between items-center">
 						<h3 className='text-lg font-medium'>Next Appointment</h3>
-						<AppointmentCalenderIcon className="text-[var(--color-blue)]" width={17} height={20} />
+						<AppointmentCalenderIcon className="text-blue" width={17} height={20} />
 					</header>
 					<div>
 						<time
 							dateTime="2025-03-15"
-							className='text-2xl font-semibold text-[var(--color-blue)]'
+							className='text-2xl font-semibold text-blue'
 						>
 							March 15, 2025
 
@@ -116,10 +116,10 @@ const RecentActivity = () => {
 								return (
 									<article key={index} className='flex justify-between items-center'>
 										<div className='flex items-center space-x-3' >
-											<ReminderIcon className="text-[var(--color-text-green)]" />
+											<ReminderIcon className="text-green" />
 											<p className='text-base'>{item.label}</p>
 										</div>
-										<button className='text-base text-[var(--color-blue)] font-medium'>Resolve</button>
+										<button className='text-base text-blue font-medium'>Resolve</button>
 									</article>
 								)
 							})

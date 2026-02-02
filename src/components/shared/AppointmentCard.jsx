@@ -13,14 +13,14 @@ const AppointmentCard = ({ appointment, onCancelRequest }) => {
 				<div className="flex justify-between">
 					<div className="flex items-center gap-1">
 						{
-							isTeleVisit ? <TeleVisitIcon className="blue" /> : <OfficeVisitIcon className="text-[var(--color-text-light-gray)]" />
+							isTeleVisit ? <TeleVisitIcon className="blue" /> : <OfficeVisitIcon className="text-text-light-gray" />
 						}
 						<p className='text-base'>{appointment.type}</p>
 					</div>
 					{
 						appointment.name != "past" && (
 							<button
-								className='text-[var(--color-red)] font-medium cursor-pointer'
+								className='text-red font-medium cursor-pointer'
 								onClick={() => {
 									window.scrollTo({ top: 0, behavior: 'smooth' });
 									onCancelRequest(appointment)
@@ -30,7 +30,7 @@ const AppointmentCard = ({ appointment, onCancelRequest }) => {
 						)
 					}
 				</div>
-				<p className='text-[var(--color-blue-medium)] font-medium text-base'>{appointment.detail}</p>
+				<p className='text-blue-medium font-medium text-base'>{appointment.detail}</p>
 				<div className='flex items-center gap-1'>
 					<AppointmentCalenderIcon width={14} height={16} />
 					<time dateTime="">{appointment.date}</time>
@@ -44,7 +44,7 @@ const AppointmentCard = ({ appointment, onCancelRequest }) => {
 					{
 						appointment.name == "checkIn" && (
 							<div>
-								<button className='px-4 py-1 bg-blue-500 text-white text-base cursor-pointer rounded-full'>Check In</button>
+								<button className='px-4 py-1 bg-blue text-white text-base cursor-pointer rounded-full'>Check In</button>
 							</div>
 						)
 					}

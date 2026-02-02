@@ -53,11 +53,11 @@ function CreateMessagePopup({ open, onClose }) {
         <div className="w-[45%] min-w-50">
           <SelectBox
             options={SELECT_OPTIONS.messageTypeOptions}
-            label="Message Type"
             id="messageType"
             control={control}
             name="messageType"
             register={register}
+            placeHolder={false}
           />
         </div>
         <div className="flex items-center ml-10">

@@ -48,10 +48,10 @@ const SettingDashboard = () => {
 
 	const PaymentMethod = ({ cardNumber, expiryDate }) => {
 		return (
-			<div className="flex flex-col border border-[var(--color-light-gray)] p-4 rounded-lg">
+			<div className="flex flex-col border border-light-gray p-4 rounded-lg">
 				<div className="flex justify-between">
-					<VisaCard className="text-[var(--color-blue)]" />
-					<DeleteIcon className="cursor-pointer text-[var(--color-red)]" />
+					<VisaCard className="text-blue" />
+					<DeleteIcon className="cursor-pointer text-red" />
 				</div>
 				<p>{maskedCardNumber(cardNumber)}</p>
 				<p>Expires {expiryDate} </p>
@@ -77,8 +77,8 @@ const SettingDashboard = () => {
 		<>
 			<form onSubmit={handleSubmit(updateDemographic)} className="flex flex-col bg-white m-4 rounded-lg shadow-sm">
 				<div className="flex justify-between items-center p-4">
-					<h3 className="text-base md:text-lg text-[var(--color-black)] font-medium">Demographic</h3>
-					<button type="submit" className="text-white bg-[var(--color-blue)] rounded-full py-2 px-4 cursor-pointer text-sm  md:text-base" >Save Changes</button>
+					<h3 className="text-base md:text-lg text-black font-medium">Demographic</h3>
+					<button type="submit" className="text-white bg-blue rounded-full py-2 px-4 cursor-pointer text-sm  md:text-base" >Save Changes</button>
 				</div>
 				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4">
 					<div>
@@ -90,7 +90,7 @@ const SettingDashboard = () => {
 							register={register}
 							label={"Account #"}
 							labelClassName={"mb-1! text-base! font-normal"}
-							inputClassName="border-[var(--color-light-gray)]! h-10!"
+							inputClassName="border-light-gray! h-10!"
 						/>
 					</div>
 					<div>
@@ -120,9 +120,9 @@ const SettingDashboard = () => {
 							control={control}
 							name="gender"
 							register={register}
-							placeHolder={false}
+							placeholder={false}
 							labelClassName="mb-0! text-base! font-normal"
-							className="h-10!"
+							selectClassName="h-10!"
 						/>
 					</div>
 
@@ -144,9 +144,9 @@ const SettingDashboard = () => {
 							control={control}
 							name="maritalStatus"
 							register={register}
-							placeHolder={false}
+							placeholder={false}
 							labelClassName="mb-0! font-normal"
-							className="border-light-gray! h-10!"
+							selectClassName="h-10!"
 						/>
 					</div>
 
@@ -183,9 +183,9 @@ const SettingDashboard = () => {
 								control={control}
 								name="state"
 								register={register}
-								placeHolder={false}
+								placeholder={false}
 								labelClassName="mb-0! font-normal"
-								className="border-light-gray! h-10!"
+								SelectClassName="border-light-gray! h-10!"
 							/>
 						</div>
 					</div>
@@ -245,9 +245,9 @@ const SettingDashboard = () => {
 							control={control}
 							name="primaryContact"
 							register={register}
-							placeHolder={false}
+							placeholder={false}
 							labelClassName="mb-0! font-normal"
-							className="border-color-light-gray! h-10!"
+							selectClassName="border-light-gray! h-10!"
 						/>
 					</div>
 
@@ -359,7 +359,7 @@ const SettingDashboard = () => {
 							disabled={false}
 							label={"Old Password"}
 							labelClassName={"mb-1! text-base! font-normal"}
-							inputClassName="border-[var(--color-light-gray)]! h-10!"
+							inputClassName="border-light-gray! h-10!"
 						/>
 					</div>
 
@@ -378,7 +378,7 @@ const SettingDashboard = () => {
 							disabled={false}
 							label={"New Password"}
 							labelClassName={"mb-1! text-base! font-normal"}
-							inputClassName="border-[var(--color-light-gray)]! h-10!"
+							inputClassName="border-light-gray! h-10!"
 						/>
 					</div>
 
@@ -390,11 +390,11 @@ const SettingDashboard = () => {
 							disabled={false}
 							label={"Confirm Password"}
 							labelClassName={"mb-1! text-base! font-normal"}
-							inputClassName="border-[var(--color-light-gray)]! h-10!"
+							inputClassName="border-light-gray! h-10!"
 						/>
 					</div>
 					<div className="pt-0 md:pt-6">
-						<button type="submit" className="text-white bg-[var(--color-blue)] rounded-full py-2 px-4 cursor-pointer mt-2 sm:mt-0" >Update Password</button>
+						<button type="submit" className="text-white bg-blue rounded-full py-2 px-4 cursor-pointer mt-2 sm:mt-0" >Update Password</button>
 					</div>
 				</div>
 			</Card>

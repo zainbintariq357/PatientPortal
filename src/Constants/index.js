@@ -13,6 +13,171 @@ const genderOptions = [
   },
 ];
 
+const healthDataInfo = [
+  {
+    id: '1',
+    Date: '03/12/2025',
+    Health_Info: 'Blood Pressure Reading',
+    URL: '',
+    Reviewed_by: '',
+    Reviewed_Date: '',
+    file: '.pdf',
+    fileName: 'Lab Results.pdf',
+  },
+  {
+    id: '2',
+    Date: '03/12/2025',
+    Health_Info: 'Blood Pressure Reading',
+    URL: '',
+    Reviewed_by: '',
+    Reviewed_Date: '',
+    file: '.jpg',
+    fileName: 'X-Ray Scan.jpg',
+  },
+
+  {
+    id: '3',
+    Date: '03/12/2025',
+    Health_Info: 'Blood Pressure Reading',
+    URL: '',
+    Reviewed_by: '',
+    Reviewed_Date: '',
+    file: '.pdf',
+    fileName: 'Lab Results.pdf',
+  },
+  {
+    id: '4',
+    Date: '03/12/2025',
+    Health_Info: 'Blood Pressure Reading',
+    URL: '',
+    Reviewed_by: '',
+    Reviewed_Date: '',
+    file: '.jpg',
+    fileName: 'X-Ray Scan.jpg',
+  },
+];
+
+const patientDocuments = [
+  {
+    id: '1',
+    DocumentName: 'Progress Note',
+    Comments: 'Work Excuse Note',
+    fileType: '.pdf',
+    fileName: 'Lab Results.pdf',
+  },
+  {
+    id: '2',
+    DocumentName: 'Lab Report',
+    Comments: 'Work on Lab Reports',
+    fileType: '.pdf',
+    fileName: 'Lab Results.pdf',
+  },
+  {
+    id: '3',
+    DocumentName: 'Progress Note',
+    Comments: 'Work Excuse Note',
+    fileType: '.pdf',
+    fileName: 'Lab Results.pdf',
+  },
+
+  {
+    id: '4',
+    DocumentName: 'Lab Report',
+    Comments: 'Work on Lab Reports',
+    fileType: '.pdf',
+    fileName: 'Lab Results.pdf',
+  },
+];
+
+const problemsList = [
+  {
+    id: '1',
+    Description: 'Unspecified Fracture',
+    Problem_Status: 'Diagnosed',
+    ICD_Code: 'S72.90XA',
+  },
+  {
+    id: '2',
+    Description: 'Unspecified Fracture',
+    Problem_Status: 'Diagnosed',
+    ICD_Code: 'S72.90XA',
+  },
+  {
+    id: '3',
+    Description: 'Unspecified Fracture',
+    Problem_Status: 'Diagnosed',
+    ICD_Code: 'S72.90XA',
+  },
+
+  {
+    id: '4',
+    Description: 'Unspecified Fracture',
+    Problem_Status: 'Diagnosed',
+    ICD_Code: 'S72.90XA',
+  },
+];
+
+const medicationList = [
+  {
+    id: '1',
+    Medicine: 'Augmentin 250 Mg',
+    Status: 'Ordered',
+    Prescribed_By: 'Dr.Smith',
+    Visit_Date: '03/12/2025',
+  },
+  {
+    id: '2',
+    Medicine: 'Augmentin 250 Mg',
+    Status: 'Ordered',
+    Prescribed_By: 'Dr.Smith',
+    Visit_Date: '03/12/2025',
+  },
+  {
+    id: '3',
+    Medicine: 'Augmentin 250 Mg',
+    Status: 'Ordered',
+    Prescribed_By: 'Dr.Smith',
+    Visit_Date: '03/12/2025',
+  },
+
+  {
+    id: '4',
+    Medicine: 'Augmentin 250 Mg',
+    Status: 'Ordered',
+    Prescribed_By: 'Dr.Smith',
+    Visit_Date: '03/12/2025',
+  },
+];
+
+const immunizationList = [];
+const cdsInterventionList = [];
+const allergiesList = [];
+const labOrdersList = [];
+const visitList = [
+  {
+    id: '1',
+    Visit_Date: 'Augmentin 250 Mg',
+    Chief_Complaint: 'Encounter',
+    Provider: 'Adam Flashner',
+  },
+  {
+    id: '2',
+    Visit_Date: '09/03/2024',
+    Chief_Complaint: 'Encounter',
+    Provider: 'Adam Flashner',
+  },
+  {
+    id: '3',
+    Visit_Date: '09/03/2024',
+    Chief_Complaint: 'Ordered',
+    Provider: 'Dr.Smith',
+  },
+];
+
+const proceduresList = [];
+const treatmentPlanList = [];
+const healthEducationList = [];
+
 const SELECT_OPTIONS = {
   genderOptions,
 
@@ -734,6 +899,76 @@ const SELECT_OPTIONS = {
     {
       label: 'Married',
       value: 'M',
+    },
+  ],
+
+  healthRecordData: [
+    {
+      id: 1,
+      title: 'Patient Generated Health Data',
+      data: healthDataInfo,
+    },
+    {
+      id: 2,
+      title: 'Patient Documents',
+      data: patientDocuments,
+    },
+    {
+      id: 3,
+      title: 'Current Problem List',
+      data: problemsList,
+    },
+    {
+      id: 4,
+      title: 'Current Medications',
+      data: medicationList,
+    },
+    {
+      id: 5,
+      title: 'Immunization Schedule',
+      data: immunizationList,
+    },
+
+    {
+      id: 6,
+      title: 'CDS Intervention',
+      data: cdsInterventionList,
+    },
+
+    {
+      id: 7,
+      title: 'Allergies',
+      data: allergiesList,
+    },
+
+    {
+      id: 8,
+      title: 'Lab Orders',
+      data: labOrdersList,
+    },
+
+    {
+      id: 9,
+      title: 'Visits',
+      data: visitList,
+    },
+
+    {
+      id: 10,
+      title: 'Procedures',
+      data: visitList,
+    },
+
+    {
+      id: 11,
+      title: 'Treatment Plan',
+      data: treatmentPlanList,
+    },
+
+    {
+      id: 12,
+      title: 'Health Education',
+      data: healthEducationList,
     },
   ],
 };

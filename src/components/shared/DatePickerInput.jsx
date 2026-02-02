@@ -73,6 +73,7 @@ const DatePickerInput = ({
               dateFormat="MM/dd/yyyy"
               selected={field.value}
               onInputClick={() => setIsOpen(true)}
+              onClickOutside={() => setIsOpen(false)}
               onChange={date => {
                 field.onChange(date);
                 setIsOpen(false);

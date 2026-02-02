@@ -2,14 +2,13 @@ import { useWatch } from 'react-hook-form';
 import DropdownIcon from '../../assets/icons/svgs/DropdownIcon';
 
 const SelectBox = ({
-  placeholder,
   label,
   rules,
   name,
   control,
   register,
   error,
-  className = '',
+  selectClassName = '',
   wrapperClassName = '',
   showAsterisks = true,
   selectDefaultValue = '',
@@ -20,12 +19,13 @@ const SelectBox = ({
   ...rest
 }) => {
   const value = useWatch({ control, name });
+  const showAsteriks = !value;
 
   return (
     <div className="relative">
       {(!value && placeHolder) && (
         <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
-          {label}
+          {placeHolder}
           {showAsteriks && <span className="text-red-500"> *</span>}
         </span>
       )}
@@ -42,7 +42,7 @@ const SelectBox = ({
         {...register(name, rules)}
         defaultValue=""
         className={`w-full h-12 border rounded-lg px-4 focus:outline-none appearance-none ${error ? 'border-red-500' : 'border-gray-300'
-          } ${className}`}
+          } ${selectClassName}`}
         disabled={disabled}
         {...rest}>
         {selectDefaultValue && <option value="">{selectDefaultValue}</option>}

@@ -1,4 +1,3 @@
-import DollarIcon from '../../assets/dollarIcon.svg?react';
 import AppointmentCard from '../shared/AppointmentCard.jsx';
 
 const RequestedAppointments = ({ appointmentsData, onCancelRequest }) => {

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import TextInput from './TextInput';
-import SelectInput from './SelectInput';
+import SelectBox from './SelectBox';
 import OTPVerification from '../Login/OTPVerification';
 import DatePickerInput from './DatePickerInput';
 
@@ -50,7 +50,7 @@ const PatientRegistrationForm = ({ type, title, subtitle, fields, LoadPrevious }
 
 					if (field.type == "Select") {
 						return (
-							<SelectInput
+							<SelectBox
 								name={field.name}
 								register={register}
 								placeholder={field.label}
@@ -58,6 +58,7 @@ const PatientRegistrationForm = ({ type, title, subtitle, fields, LoadPrevious }
 								rules={rules}
 								options={field.options}
 								error={formState.errors[field.name]}
+								selectClassName={field.className}
 							/>
 						)
 					}
@@ -70,6 +71,8 @@ const PatientRegistrationForm = ({ type, title, subtitle, fields, LoadPrevious }
 								control={control}
 								rules={rules}
 								error={formState.errors[field.name]}
+								datePickerClassName={field.className}
+								placeholderText={field.label}
 							/>
 						)
 					}
@@ -83,6 +86,7 @@ const PatientRegistrationForm = ({ type, title, subtitle, fields, LoadPrevious }
 							rules={rules}
 							error={formState.errors[field.name]}
 							length={field.length}
+							inputClassName={field.className}
 						/>
 					)
 				})
