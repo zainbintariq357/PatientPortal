@@ -9,6 +9,8 @@ import DeleteIcon from '../../assets/icons/svgs/DeleteIcon';
 
 const SettingDashboard = () => {
 
+	const [isRepresenterRemove, setRepresenterRemove] = useState(false);
+
 	const { genderOptions, representsEmail, insurancesInfo, paymentMethods, maritalOptions, stateOptions, primaryContactOptions } = SELECT_OPTIONS;
 
 	const { register, control, handleSubmit } = useForm({
@@ -75,6 +77,15 @@ const SettingDashboard = () => {
 	return (
 
 		<>
+
+			{
+				isRepresenterRemove &&
+				<Toast type={"Warning"} message={"Are you sure you want to delete representer?"} onClose={() => setRepresenterRemove(false)} />
+			}
+
+
+
+
 			<form onSubmit={handleSubmit(updateDemographic)} className="flex flex-col bg-white m-4 rounded-lg shadow-sm">
 				<div className="flex justify-between items-center p-4">
 					<h3 className="text-base md:text-lg text-black font-medium">Demographic</h3>
@@ -310,7 +321,7 @@ const SettingDashboard = () => {
 						<h3 className="font-medium py-2">Whom I Represent</h3>
 						<div className="flex justify-between bg-gray-50 p-4 mt-2">
 							<p className="font-medium">John Doe</p>
-							<DeleteIcon className="cursor-pointer text-red" />
+							<DeleteIcon className="w-4 h-4  cursor-pointer text-red" />
 						</div>
 					</div>
 
@@ -326,7 +337,14 @@ const SettingDashboard = () => {
 								representsEmail.map((item, index) => (
 									<div key={index} className="flex justify-between">
 										<p className="font-medium text-sm md:text-base">{item.label}</p>
-										<button className="text-blue-medium cursor-pointer text-xs md:text-sm">Resend Email</button>
+										<div className="flex items-center">
+											<button className="flex items-center text-blue-medium cursor-pointer text-xs md:text-sm">
+												Resend Email
+											</button>
+											<button onClick={() => deleteRepresenterMe(item)}>
+												<DeleteIcon className="w-4 h-4 ml-2 cursor-pointer text-red" />
+											</button>
+										</div>
 									</div>
 								))
 							}
