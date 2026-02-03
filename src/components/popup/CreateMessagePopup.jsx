@@ -48,16 +48,16 @@ function CreateMessagePopup({ open, onClose }) {
       isOpen={open}
       onClose={handleClose}
       modalStyle="max-w-200">
-      <p className="text-sm text-text-gray font-medium mt-12">Message Type</p>
       <div className="mt-3 flex items-center">
         <div className="w-[45%] min-w-50">
           <SelectBox
             options={SELECT_OPTIONS.messageTypeOptions}
+            label="Message Type"
             id="messageType"
             control={control}
             name="messageType"
             register={register}
-            placeHolder={false}
+            labelClassName="text-sm mt-12"
           />
         </div>
         <div className="flex items-center ml-10">
@@ -76,6 +76,7 @@ function CreateMessagePopup({ open, onClose }) {
         showCharacterCount={true}
         maxCharacters={1000}
         wrapperClassName="mt-8"
+        labelClassName="text-sm"
       />
 
       <p className="text-sm text-text-gray font-medium mt-8 mb-3">

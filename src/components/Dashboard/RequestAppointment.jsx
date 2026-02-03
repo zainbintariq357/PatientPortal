@@ -36,7 +36,7 @@ const RequestAppointment = () => {
 					<article className='flex flex-col md:flex-row justify-between'>
 						<div className='flex space-x-4 items-center'>
 							<div className='bg-gray-50 py-2 px-2 rounded-lg'>
-								<CalenderIcon className="text-text-green" />
+								<CalenderIcon className="text-green" />
 							</div>
 							<div className='flex flex-col'>
 								<span>Tele Visit</span>
@@ -58,7 +58,7 @@ const RequestAppointment = () => {
 			<div className='flex flex-col lg:flex-row justify-between gap-4 space-x-4 p-2'>
 				<div className='flex w-full lg:w-1/2 flex-col items-start bg-white gap-1 p-4 rounded'>
 					<div className='inline-flex p-3 rounded bg-gray-50 rounded-full'>
-						<AppointmentIcon className="text-text-green" />
+						<AppointmentIcon className="text-green" />
 					</div>
 					<span className='text-base font-medium text-black'>Request Appointment</span>
 					<span className='text-sm text-gray-text'>Schedule your next appointment</span>

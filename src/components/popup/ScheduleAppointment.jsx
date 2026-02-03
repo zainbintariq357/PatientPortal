@@ -39,7 +39,6 @@ function ScheduleAppointment({ open, onClose }) {
   const selectedLocation = watch('location');
 
   const handleNext = data => {
-    onClose(true);
     console.log('Next Data: ', data);
   };
   const onFormError = errors => {
@@ -61,7 +60,7 @@ function ScheduleAppointment({ open, onClose }) {
         <button
           key={tab}
           onClick={() => onTabClick(tab)}
-          className={`px-3 py-2.5 rounded-lg text-lg font-semibold cursor-pointer ${activeTab === tab ? activeTabStyles : inactiveTabStyles
+          className={`px-3 py-2.5 rounded-lg text-lg font-semibold ${activeTab === tab ? activeTabStyles : inactiveTabStyles
             }`}>
           {tab}
         </button>
@@ -80,9 +79,9 @@ function ScheduleAppointment({ open, onClose }) {
       titleClassName="text-primary">
       <Tabs options={tabs} activeTab={activeTab} onTabClick={handleTabClick} />
 
-      <SectionTitle title="Provider" />
       <SelectBox
         options={SELECT_OPTIONS.providerOptions}
+        label="Provider"
         id="provider"
         control={control}
         name="provider"
@@ -91,12 +90,13 @@ function ScheduleAppointment({ open, onClose }) {
           required: 'Provider is required',
         }}
         error={errors['provider']}
-        placeHolder={false}
+        labelClassName="text-lg font-medium"
+        wrapperClassName="mt-8"
       />
 
-      <SectionTitle title="Location" />
       <SelectBox
         options={SELECT_OPTIONS.locationOptions}
+        label="Location"
         id="location"
         control={control}
         name="location"
@@ -105,7 +105,8 @@ function ScheduleAppointment({ open, onClose }) {
           required: 'Location is required',
         }}
         error={errors['location']}
-        placeHolder={false}
+        labelClassName="text-lg font-medium"
+        wrapperClassName="mt-8"
       />
 
       {!!selectedLocation && (
@@ -116,12 +117,9 @@ function ScheduleAppointment({ open, onClose }) {
       )}
 
       <>
-        <SectionTitle
-          title="Reason"
-          {...(selectedLocation && { className: 'mt-1' })}
-        />
         <SelectBox
           options={SELECT_OPTIONS.reasonForScheduleAppointmentOptions}
+          label="Reason"
           id="reason"
           control={control}
           name="reason"
@@ -130,17 +128,18 @@ function ScheduleAppointment({ open, onClose }) {
             required: 'Reason is required',
           }}
           error={errors['reason']}
-          placeHolder={false}
+          labelClassName="text-lg font-medium"
+          wrapperClassName={selectedLocation ? 'mt-2' : 'mt-8'}
         />
       </>
 
       <div className="flex justify-end gap-4 mt-12">
-        <Button title="Cancel" onClick={handleClose} variant="secondary" className='cursor-pointer' />
+        <Button title="Cancel" onClick={handleClose} variant="secondary" />
         <Button
           title="Next"
           onClick={handleSubmit(handleNext, onFormError)}
           disabled={isSubmitting || !isValid}
-          className="min-w-28 cursor-pointer"
+          className="min-w-28"
         />
       </div>
     </PopupWrapper>

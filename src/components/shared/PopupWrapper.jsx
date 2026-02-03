@@ -19,7 +19,7 @@ function PopupWrapper({
 
       {/* Modal box */}
       <div
-        className={`relative bg-white rounded-2xl p-6 w-3xl max-h-screen overflow-y-auto ${modalStyle}`}>
+        className={`relative bg-white rounded-2xl p-6 w-3xl max-h-[80vh] overflow-y-auto ${modalStyle}`}>
         <div
           className={`flex justify-between -mt-6 -mx-6 px-6 py-4 border-b border-border ${headerStyle}`}>
           <h2 className={`text-2xl font-semibold ${titleClassName}`}>

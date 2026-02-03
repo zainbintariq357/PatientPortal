@@ -5,7 +5,7 @@ import RequestedAppointments from '../components/Appointments/RequestedAppointme
 import SELECT_OPTIONS from '../Constants';
 import WarningMessage from '../components/popup/WarningMessage';
 import PrevIcon from '../assets/prevIcon.svg?react';
-import NextIcon from '../assets/NextIcon.svg?react';
+import NextIcon from '../assets/nextIcon.svg?react';
 import RequestAppointment from '../components/popup/RequestAppointment';
 import OfficeVisitScheduleAppointment from '../components/popup/OfficeVisitScheduleAppointment';
 

@@ -103,9 +103,9 @@ function RequestAppointment({ open, onClose }) {
       </div>
 
       <div>
-        <SectionTitle title="Reason for Visit" />
         <SelectBox
           options={SELECT_OPTIONS.reasonForVisitOptions}
+          label="Reason for Visit"
           id="reasonForVisit"
           control={control}
           name="reasonForVisit"
@@ -114,7 +114,8 @@ function RequestAppointment({ open, onClose }) {
             required: 'Reason for Visit is required',
           }}
           error={errors['reasonForVisit']}
-          placeHolder={false}
+          wrapperClassName="mt-8"
+          labelClassName="text-lg font-medium"
         />
       </div>
 
