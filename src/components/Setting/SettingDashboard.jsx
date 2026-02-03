@@ -120,7 +120,6 @@ const SettingDashboard = () => {
 							control={control}
 							name="gender"
 							register={register}
-							placeholder={false}
 							labelClassName="mb-0! text-base! font-normal"
 							selectClassName="h-10!"
 						/>
@@ -144,7 +143,6 @@ const SettingDashboard = () => {
 							control={control}
 							name="maritalStatus"
 							register={register}
-							placeholder={false}
 							labelClassName="mb-0! font-normal"
 							selectClassName="h-10!"
 						/>

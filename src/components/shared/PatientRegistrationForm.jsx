@@ -67,12 +67,12 @@ const PatientRegistrationForm = ({ type, title, subtitle, fields, LoadPrevious }
 						return (
 							<DatePickerInput
 								name={field.name}
-								placeholder={field.label}
 								control={control}
 								rules={rules}
 								error={formState.errors[field.name]}
 								datePickerClassName={field.className}
-								placeholderText={field.label}
+								placeholder={field.label}
+								placeholderText={null}
 							/>
 						)
 					}

@@ -47,7 +47,9 @@ function CreateMessagePopup({ open, onClose }) {
       title="Create Message"
       isOpen={open}
       onClose={handleClose}
-      modalStyle="max-w-200">
+      modalStyle="max-w-200"
+      headerStyle='border-light-gray'
+    >
       <div className="mt-3 flex items-center">
         <div className="w-[45%] min-w-50">
           <SelectBox
@@ -58,6 +60,7 @@ function CreateMessagePopup({ open, onClose }) {
             name="messageType"
             register={register}
             labelClassName="text-sm mt-12"
+            placeHolder={false}
           />
         </div>
         <div className="flex items-center ml-10">
@@ -77,6 +80,7 @@ function CreateMessagePopup({ open, onClose }) {
         maxCharacters={1000}
         wrapperClassName="mt-8"
         labelClassName="text-sm"
+        textAreaClassName='border-light-gray'
       />
 
       <p className="text-sm text-text-gray font-medium mt-8 mb-3">

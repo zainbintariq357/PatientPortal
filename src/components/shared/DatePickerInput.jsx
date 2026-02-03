@@ -83,6 +83,7 @@ const DatePickerInput = ({
             />
             {field.value ? (
               <button
+                type='button'
                 onClick={() => {
                   field.onChange(null);
                   setIsOpen(false);
@@ -92,6 +93,7 @@ const DatePickerInput = ({
               </button>
             ) : (
               <button
+                type='button'
                 onClick={() => setIsOpen(true)}
                 className="absolute top-1/2 right-3 -translate-y-1/2 w-5 h-4 cursor-pointer opacity-70 hover:opacity-100">
                 <CalenderIcon />

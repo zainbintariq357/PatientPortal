@@ -1,6 +1,6 @@
 const genderOptions = [
   {
-    label: '-Select-',
+    label: '',
     value: '',
   },
   {
@@ -218,6 +218,7 @@ const SELECT_OPTIONS = {
         required: 'Gender is required',
       },
       options: genderOptions,
+      className: 'border-white-gray',
     },
 
     {

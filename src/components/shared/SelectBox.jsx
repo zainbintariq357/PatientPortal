@@ -2,6 +2,7 @@ import { useWatch } from 'react-hook-form';
 import DropdownIcon from '../../assets/icons/svgs/DropdownIcon';
 
 const SelectBox = ({
+  placeholder = false,
   label,
   rules,
   name,
@@ -13,7 +14,6 @@ const SelectBox = ({
   showAsterisks = true,
   selectDefaultValue = '',
   labelClassName = '',
-  placeHolder = true,
   disabled = false,
   options,
   ...rest
@@ -22,10 +22,10 @@ const SelectBox = ({
   const showAsteriks = !value;
 
   return (
-    <div className="relative">
-      {(!value && placeHolder) && (
+    <div className='relative'>
+      {(!value && placeholder) && (
         <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
-          {placeHolder}
+          {placeholder}
           {showAsteriks && <span className="text-red-500"> *</span>}
         </span>
       )}
@@ -41,10 +41,11 @@ const SelectBox = ({
       <select
         {...register(name, rules)}
         defaultValue=""
-        className={`w-full h-12 border rounded-lg px-4 focus:outline-none appearance-none ${error ? 'border-red-500' : 'border-gray-300'
+        className={`w-full h-12 border rounded-lg px-4 focus:outline-none appearance-none cursor-pointer ${error ? 'border-red-500' : 'border-gray-300'
           } ${selectClassName}`}
         disabled={disabled}
-        {...rest}>
+        {...rest}
+      >
         {selectDefaultValue && <option value="">{selectDefaultValue}</option>}
 
         {options.map((item, index) => (
@@ -53,15 +54,15 @@ const SelectBox = ({
           </option>
         ))}
       </select>
-
       <span
-        className="absolute top-2/3 right-3 -translate-y-1/2  pointer-events-none">
+        className={`absolute right-3 -translate-y-1/2 ${label ? 'top-2/3' : 'top-1/2'}  pointer-events-none`}>
         <DropdownIcon width="15" height='14' />
       </span>
 
 
+
       {error && <span className="text-red-500 text-sm">{error.message}</span>}
-    </div>
+    </div >
   );
 };
 
