@@ -8,6 +8,7 @@ import SELECT_OPTIONS from "../../Constants";
 import Switch from "../shared/Switch";
 import VisaCard from '../../assets/icons/svgs/VisaCard';
 import DeleteIcon from '../../assets/icons/svgs/DeleteIcon';
+import Toast from "../toast/Toast";
 
 const SettingDashboard = () => {
 
@@ -74,6 +75,10 @@ const SettingDashboard = () => {
 				{children}
 			</div>
 		)
+	}
+
+	const deleteRepresenterMe = (item) => {
+		setRepresenterRemove(true)
 	}
 
 	return (
