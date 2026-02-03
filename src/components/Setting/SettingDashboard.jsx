@@ -56,7 +56,7 @@ const SettingDashboard = () => {
 			<div className="flex flex-col border border-light-gray p-4 rounded-lg">
 				<div className="flex justify-between">
 					<VisaCard className="text-blue" />
-					<DeleteIcon className="cursor-pointer text-red" />
+					<DeleteIcon className="w-4 h-4 cursor-pointer text-red" />
 				</div>
 				<p>{maskedCardNumber(cardNumber)}</p>
 				<p>Expires {expiryDate} </p>
@@ -89,7 +89,6 @@ const SettingDashboard = () => {
 				isRepresenterRemove &&
 				<Toast type={"Warning"} message={"Are you sure you want to delete representer?"} onClose={() => setRepresenterRemove(false)} />
 			}
-
 
 
 
