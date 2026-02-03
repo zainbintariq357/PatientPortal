@@ -13,12 +13,6 @@ const tabs = {
   teleVisit: 'Tele Visit',
 };
 
-const SectionTitle = ({ title, showSteric = true, className = 'mt-10' }) => (
-  <p className={`text-lg font-medium mb-4 text-text-gray ${className}`}>
-    {title} {showSteric && <span className="text-danger"> *</span>}
-  </p>
-);
-
 function ScheduleAppointment({ open, onClose }) {
   const [activeTab, setActiveTab] = useState(tabs?.officeVisit);
 
@@ -39,7 +33,6 @@ function ScheduleAppointment({ open, onClose }) {
   const selectedLocation = watch('location');
 
   const handleNext = data => {
-    onClose(true)
     console.log('Next Data: ', data);
   };
   const onFormError = errors => {
@@ -61,7 +54,7 @@ function ScheduleAppointment({ open, onClose }) {
         <button
           key={tab}
           onClick={() => onTabClick(tab)}
-          className={`px-3 py-2.5 rounded-lg text-lg font-semibold cursor-pointer ${activeTab === tab ? activeTabStyles : inactiveTabStyles
+          className={`px-3 py-2.5 rounded-lg text-lg font-semibold ${activeTab === tab ? activeTabStyles : inactiveTabStyles
             }`}>
           {tab}
         </button>
@@ -77,7 +70,7 @@ function ScheduleAppointment({ open, onClose }) {
       isOpen={open}
       onClose={handleClose}
       headerStyle="py-7"
-      titleClassName="text-primary">
+      titleClassName="text-text-gray">
       <Tabs options={tabs} activeTab={activeTab} onTabClick={handleTabClick} />
 
       <SelectBox
@@ -93,7 +86,6 @@ function ScheduleAppointment({ open, onClose }) {
         error={errors['provider']}
         labelClassName="text-lg font-medium"
         wrapperClassName="mt-8"
-        placeHolder={false}
       />
 
       <SelectBox
@@ -109,7 +101,6 @@ function ScheduleAppointment({ open, onClose }) {
         error={errors['location']}
         labelClassName="text-lg font-medium"
         wrapperClassName="mt-8"
-        placeHolder={false}
       />
 
       {!!selectedLocation && (
@@ -133,17 +124,16 @@ function ScheduleAppointment({ open, onClose }) {
           error={errors['reason']}
           labelClassName="text-lg font-medium"
           wrapperClassName={selectedLocation ? 'mt-2' : 'mt-8'}
-          placeHolder={false}
         />
       </>
 
       <div className="flex justify-end gap-4 mt-12">
-        <Button title="Cancel" onClick={handleClose} variant="secondary" className='cursor-pointer' />
+        <Button title="Cancel" onClick={handleClose} variant="secondary" />
         <Button
           title="Next"
           onClick={handleSubmit(handleNext, onFormError)}
           disabled={isSubmitting || !isValid}
-          className="min-w-28 cursor-pointer"
+          className="min-w-28"
         />
       </div>
     </PopupWrapper>

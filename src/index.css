@@ -32,6 +32,22 @@
   --color-warning: #eab308;
   --color-text-yellow: #F1B434;
   
-
+  --color-border: #e5e7eb
 }
 
+
+.Toastify__toast-container--top-center {
+  top: 25% !important;
+  transform: translateY(-50%);
+}
+
+/* Toast box */
+.confirm-toast {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Remove default padding */
+.confirm-toast-body {
+  padding: 0 !important;
+}
