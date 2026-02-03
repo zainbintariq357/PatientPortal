@@ -75,12 +75,13 @@ function SendCCDA({ open, onClose, type }) {
       title={title}
       isOpen={open}
       onClose={handleClose}
-      modalStyle="w-200!">
+      modalStyle="w-200!"
+      headerStyle="border-light-gray"
+    >
       {(type === 'Transmit' || type === 'Download') && (
         <>
-          <div className="mt-6 rounded-xl border border-border bg-[#F9FAFB] px-6 pt-5 pb-2">
+          <div className="mt-6 rounded-xl border border-border bg-[#F9FAFB]  border-light-gray! px-6 pt-5 pb-2">
             <h5 className="font-semibold text-text-gray">Date Filter</h5>
-
             <div className="mt-4 flex gap-6">
               {dateFields.map(({ label, name }) => (
                 <div key={name} className="flex-1">
@@ -88,7 +89,7 @@ function SendCCDA({ open, onClose, type }) {
                     label={label}
                     name={name}
                     control={control}
-                    datePickerClassName="border-border! h-11!"
+                    datePickerClassName="border-border! h-11! border-light-gray!"
                     labelClassName="font-normal! text-text-light-gray text-sm!"
                   />
                 </div>
@@ -118,7 +119,7 @@ function SendCCDA({ open, onClose, type }) {
             register={register}
             placeholder="Enter Sender"
             placeholderAsteric={false}
-            inputClassName="h-11! border-border!"
+            inputClassName="h-11! border-border! border-light-gray!"
           />
 
           <div className="flex gap-3 mt-6">
@@ -132,6 +133,7 @@ function SendCCDA({ open, onClose, type }) {
                 showAsteriks={false}
                 selectClassName="max-h-11! border-border!"
                 labelClassName={labelClassName}
+                placeHolder={false}
               />
             </div>
 
@@ -139,7 +141,7 @@ function SendCCDA({ open, onClose, type }) {
               title="Address Book"
               type="button"
               variant="secondary"
-              className="self-end"
+              className="self-end cursor-pointer"
             />
           </div>
         </>
@@ -159,7 +161,7 @@ function SendCCDA({ open, onClose, type }) {
             placeholderAsteric={false}
             wrapperClassName="mt-6"
             labelClassName={labelClassName}
-            inputClassName="h-11! border-border!"
+            inputClassName="h-11! border-border! border-light-gray!"
           />
           {/* Message */}
           <TextArea
@@ -170,7 +172,7 @@ function SendCCDA({ open, onClose, type }) {
             error={errors.message}
             placeholder="Enter your message"
             wrapperClassName="mt-6!"
-            textAreaClassName="h-32!"
+            textAreaClassName="h-32! border-light-gray"
             labelClassName={labelClassName}
           />
         </>

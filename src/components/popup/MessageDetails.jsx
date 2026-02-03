@@ -1,6 +1,6 @@
-import {CheckIcon} from 'lucide-react';
-import React, {useCallback} from 'react';
-import {Controller, useForm, useWatch} from 'react-hook-form';
+import { CheckIcon } from 'lucide-react';
+import React, { useCallback } from 'react';
+import { Controller, useForm, useWatch } from 'react-hook-form';
 import Attachment from '../../assets/icons/svgs/Attachment';
 import PDFIcon from '../../assets/icons/svgs/Pdf';
 import ImageIcon from '../../assets/icons/svgs/Image';
@@ -33,7 +33,7 @@ const dummyMeesages = [
   },
 ];
 
-const ReplyComponent = ({msg}) => (
+const ReplyComponent = ({ msg }) => (
   <div className="flex mt-6 gap-4">
     <img
       src={msg.senderProfileImage}
@@ -52,13 +52,13 @@ const ReplyComponent = ({msg}) => (
   </div>
 );
 
-function MessageDetails({open, onClose}) {
+function MessageDetails({ open, onClose }) {
   const inputRef = React.useRef(null);
   const {
     control,
     handleSubmit,
     reset,
-    formState: {isSubmitting, isValid, errors, isDirty},
+    formState: { isSubmitting, isValid, errors, isDirty },
     setValue,
   } = useForm({
     defaultValues: {
@@ -101,7 +101,9 @@ function MessageDetails({open, onClose}) {
       title="Message Details"
       isOpen={open}
       onClose={handleClose}
-      modalStyle="w-250!">
+      modalStyle="w-250! "
+      headerStyle="border-light-gray"
+    >
       <div>
         <div className="pl-6 pt-3.5 pb-6 pr-3.5 mt-6 rounded-xl bg-[#EFF6FF]">
           <div className="flex w-full justify-between">
@@ -129,8 +131,8 @@ function MessageDetails({open, onClose}) {
           </p>
           <div className="flex mt-6 gap-3 flex-wrap">
             {[
-              {name: 'medical_history.pdf', type: 'pdf'},
-              {name: 'xray_image.png', type: 'image'},
+              { name: 'medical_history.pdf', type: 'pdf' },
+              { name: 'xray_image.png', type: 'image' },
             ].map((file, index) => (
               <div
                 key={index}
@@ -153,7 +155,7 @@ function MessageDetails({open, onClose}) {
           ))}
         </div>
 
-        <hr className="-mx-6 border-border" />
+        <hr className="-mx-6 border-border border-light-gray" />
 
         <div className="flex min-h-25! justify-between gap-4 mt-6">
           <div className="flex-1">
@@ -161,7 +163,7 @@ function MessageDetails({open, onClose}) {
               placeholder="Type your reply..."
               name="reply"
               control={control}
-              textAreaClassName="max-h-25!"
+              textAreaClassName="max-h-25! border-light-gray"
             />
             {!!selectedAttachments.length && (
               <div className="flex flex-wrap gap-2 pb-5">
@@ -194,7 +196,7 @@ function MessageDetails({open, onClose}) {
               name="attachments"
               control={control}
               defaultValue={[]}
-              render={({field}) => (
+              render={({ field }) => (
                 <>
                   {/* Hidden input */}
                   <input
@@ -211,14 +213,14 @@ function MessageDetails({open, onClose}) {
                   />
 
                   <Button
-                    className="flex items-center px-3.5! py-2! border-border! font-normal! text-text-dark-gray!"
+                    className="flex items-center px-3.5! py-2! border-border! font-normal! text-text-dark-gray! border-light-gray!"
                     variant="secondary"
                     onClick={() => {
                       if (!inputRef.current) return;
                       inputRef.current.click();
                     }}>
                     <Attachment className="h-4 w-4" />
-                    <span className="ml-2">Attach File</span>
+                    <span className="ml-2 ">Attach File</span>
                   </Button>
                 </>
               )}

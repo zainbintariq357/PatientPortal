@@ -6,7 +6,7 @@ function Button({
   ...props
 }) {
   const isDisabled = props.disabled ? 'opacity-50 cursor-not-allowed' : '';
-  const base = 'px-6 py-2 rounded-full justify-center flex items-center ';
+  const base = 'px-6 py-2 rounded-full justify-center flex items-center cursor-pointer ';
 
   const variants = {
     primary: 'bg-primary text-white hover:bg-blue-700 ' + isDisabled,

@@ -26,7 +26,7 @@ function PopupWrapper({
             {title}
           </h2>
           <button onClick={onClose} className="cursor-pointer">
-            <CrossIcon className="w-5 h-5 mt-1.5" />
+            <CrossIcon className="w-4 h-4 mt-1.5 text-gray-text" />
           </button>
         </div>
         {children}

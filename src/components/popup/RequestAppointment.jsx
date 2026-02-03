@@ -70,7 +70,7 @@ function RequestAppointment({ open, onClose }) {
         <button
           key={tab}
           onClick={() => onTabClick(tab)}
-          className={`px-3 py-2.5 rounded-lg text-lg font-semibold ${activeTab === tab ? activeTabStyles : inactiveTabStyles
+          className={`px-3 py-2.5 rounded-lg text-lg font-semibold cursor-pointer ${activeTab === tab ? activeTabStyles : inactiveTabStyles
             }`}>
           {tab}
         </button>
@@ -85,7 +85,7 @@ function RequestAppointment({ open, onClose }) {
       title="Request Appointment"
       isOpen={open}
       onClose={handleClose}
-      headerStyle="py-7"
+      headerStyle="py-7 border-light-gray"
       titleClassName="text-primary"
       modalStyle="max-w-200">
       <Tabs options={tabs} activeTab={activeTab} onTabClick={handleTabClick} />
@@ -99,6 +99,7 @@ function RequestAppointment({ open, onClose }) {
             required: 'Appointment Date is required',
           }}
           error={errors['appointmentDate']}
+          datePickerClassName="border-light-gray!"
         />
       </div>
 
@@ -116,6 +117,7 @@ function RequestAppointment({ open, onClose }) {
           error={errors['reasonForVisit']}
           wrapperClassName="mt-8"
           labelClassName="text-lg font-medium"
+          placeHolder={false}
         />
       </div>
 
@@ -144,7 +146,7 @@ function RequestAppointment({ open, onClose }) {
         name="additionalNotes"
         control={control}
         error={errors['additionalNotes']}
-        textAreaClassName="h-32!"
+        textAreaClassName="h-32! border-light-gray"
         wrapperClassName="mt-8!"
       />
 

@@ -6,15 +6,17 @@ import SendCCDA from "../components/popup/SendCCDA";
 const HealthRecord = () => {
 
 	const [transmitCDAOpen, setTransmitCDAOpen] = useState(false);
+	const [typeCCDA, setTypeCCDA] = useState("View");
 
 	const showCCDA = (type) => {
 		setTransmitCDAOpen(true);
+		setTypeCCDA(type);
 	}
 
 
 	return (
 		<>
-			<SendCCDA open={transmitCDAOpen} onClose={() => setTransmitCDAOpen(false)} />
+			<SendCCDA open={transmitCDAOpen} onClose={() => setTransmitCDAOpen(false)} type={typeCCDA} />
 
 			<div className="bg-gray-50 min-h-screen py-6">
 				<div className="text-right px-4 space-x-4">
