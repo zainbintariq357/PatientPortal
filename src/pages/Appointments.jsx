@@ -8,8 +8,8 @@ import PrevIcon from '../assets/prevIcon.svg?react';
 import NextIcon from '../assets/nextIcon.svg?react';
 import RequestAppointment from '../components/popup/RequestAppointment';
 import OfficeVisitScheduleAppointment from '../components/popup/OfficeVisitScheduleAppointment';
-
 import ScheduleAppointment from '../components/popup/ScheduleAppointment';
+import Toast from '../components/toast/Toast';
 
 
 const Appointments = () => {
@@ -64,7 +64,7 @@ const Appointments = () => {
 		<div className='min-h-screen relative flex flex-col' ref={warningRef}>
 			{
 				warning && <div className='fixed sm:static md:absolute top-6 left-2/5 transform -translate-x-1/2 z-50 '>
-					<WarningMessage ClosePopup={closeWarning} appointment={selectedAppointment} />
+					<Toast message='Are you sure you want to cancel the appointment request?' type="warning" onClose={() => setWarning(false)} />
 				</div>
 			}
 

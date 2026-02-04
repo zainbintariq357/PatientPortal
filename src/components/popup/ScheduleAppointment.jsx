@@ -33,6 +33,7 @@ function ScheduleAppointment({ open, onClose }) {
   const selectedLocation = watch('location');
 
   const handleNext = data => {
+    onClose(true);
     console.log('Next Data: ', data);
   };
   const onFormError = errors => {
