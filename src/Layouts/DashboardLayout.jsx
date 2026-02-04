@@ -19,8 +19,8 @@ const DashboardLayout = () => {
 
 			<aside
 				className={`
-					fixed md:static z-50 transition-transform duration-300  md:translate-x-0 
-					${openSideBar ? "w-[275px] translate-x-0" : "w-[72px] -translate-x-full"}`
+					fixed sm:static z-50 transition-transform duration-300  md:translate-x-0 
+					${openSideBar ? "w-[275px] translate-x-0" : "w-[72px] translate-x-0 md:-translate-x-full"}`
 				}
 			>
 				<SideBar
