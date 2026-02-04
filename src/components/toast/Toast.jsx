@@ -30,8 +30,8 @@ const Toast = ({
 				<div
 					className={`flex item-center ${isSuccess ? 'bg-[#E6F4EA]' : 'bg-[#FFF8E1]'} rounded-md border border-border p-5 min-w-120`}>
 					<div>
-						{isWarning && <WarningIcon className="w-5 h-5" />}
-						{isSuccess && <CircleCheck className="w-5 h-5" />}
+						{isWarning && <WarningIcon className="w-5 h-5 text-deep-orange" />}
+						{isSuccess && <CircleCheck className="w-5 h-5 text-success" />}
 					</div>
 					<div className="flex-1 ml-4">
 						<div className="flex justify-between items-center relative">

@@ -64,7 +64,7 @@ const Appointments = () => {
 		<div className='min-h-screen relative flex flex-col' ref={warningRef}>
 			{
 				warning && <div className='fixed sm:static md:absolute top-6 left-2/5 transform -translate-x-1/2 z-50 '>
-					<Toast message='Are you sure you want to cancel the appointment request?' type="warning" onClose={() => setWarning(false)} />
+					<Toast message='Are you sure you want to cancel the appointment request?' type="Warning" onClose={() => setWarning(false)} />
 				</div>
 			}
 
