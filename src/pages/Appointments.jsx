@@ -1,16 +1,13 @@
 import React, { useRef, useState } from 'react';
-
 import ReloadIcon from '../assets/reloadIcon.svg?react';
 import RequestedAppointments from '../components/Appointments/RequestedAppointments';
 import SELECT_OPTIONS from '../Constants';
-import WarningMessage from '../components/popup/WarningMessage';
 import PrevIcon from '../assets/prevIcon.svg?react';
 import NextIcon from '../assets/nextIcon.svg?react';
 import RequestAppointment from '../components/popup/RequestAppointment';
 import OfficeVisitScheduleAppointment from '../components/popup/OfficeVisitScheduleAppointment';
 import ScheduleAppointment from '../components/popup/ScheduleAppointment';
 import Toast from '../components/toast/Toast';
-
 
 const Appointments = () => {
 
@@ -19,8 +16,6 @@ const Appointments = () => {
 	const [isRequestedAppointments, setIsRequestedAppointments] = useState(false);
 	const [isTeleVisitAppointments, setIsTeleVisitAppointments] = useState(false);
 	const [isScheduleAppointments, setIsScheduleAppointments] = useState(false);
-
-
 	const [warning, setWarning] = useState(false);
 	const [selectedAppointment, setSelectedAppointment] = useState(null);
 	const { requestedAppointmentsData, upCommingAppointmentsData, pastAppointmentsData } = SELECT_OPTIONS;
@@ -42,12 +37,6 @@ const Appointments = () => {
 		console.log("the selected appointment is", data);
 		warningRef.current?.scrollIntoView({ behavior: 'smooth' });
 
-	}
-
-	const closeWarning = (appointment) => {
-		setWarning(false);
-		setSelectedAppointment(appointment);
-		console.log("the selected appointment is", appointment);
 	}
 
 	const ShowCalenderPopup = (show) => {
