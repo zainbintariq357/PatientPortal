@@ -14,7 +14,7 @@ const Settings = () => {
 				<div className="text-right px-4">
 					<button className="text-blue border rounded-full  py-2 md:py-2.5 px-4 cursor-pointer border-blue text-sm md:text-base" onClick={() => setIsActivityLog(true)} >Activity Log</button>
 				</div>
-				<SettingDashboard />
+				<SettingDashboard /> 
 			</div>
 		</>
 
