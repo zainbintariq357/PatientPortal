@@ -1,6 +1,6 @@
-import { CheckIcon } from 'lucide-react';
-import React, { useCallback } from 'react';
-import { Controller, useForm, useWatch } from 'react-hook-form';
+import {CheckIcon} from 'lucide-react';
+import React, {useCallback} from 'react';
+import {Controller, useForm, useWatch} from 'react-hook-form';
 import Attachment from '../../assets/icons/svgs/Attachment';
 import PDFIcon from '../../assets/icons/svgs/Pdf';
 import ImageIcon from '../../assets/icons/svgs/Image';
@@ -33,7 +33,7 @@ const dummyMeesages = [
   },
 ];
 
-const ReplyComponent = ({ msg }) => (
+const ReplyComponent = ({msg}) => (
   <div className="flex mt-6 gap-4">
     <img
       src={msg.senderProfileImage}
@@ -44,21 +44,21 @@ const ReplyComponent = ({ msg }) => (
     <div className="flex-1 p-4 rounded-xl bg-[#F9FAFB]">
       <div className="flex justify-between">
         <p className="font-semibold text-text-dark-gray">{msg.senderName}</p>
-        <p className="text-sm text-text-more-light-gray">{msg.time}</p>
+        <p className="text-sm text-[#6B7280]">{msg.time}</p>
       </div>
-      <p className="text-sm text-text-more-light-gray mt-1">{msg.senderRole}</p>
+      <p className="text-sm text-[#6B7280] mt-1">{msg.senderRole}</p>
       <p className="mt-2.5 text-text-gray leading-loose">{msg.message}</p>
     </div>
   </div>
 );
 
-function MessageDetails({ open, onClose }) {
+function MessageDetails({open, onClose}) {
   const inputRef = React.useRef(null);
   const {
     control,
     handleSubmit,
     reset,
-    formState: { isSubmitting, isValid, errors, isDirty },
+    formState: {isSubmitting, isValid, errors, isDirty},
     setValue,
   } = useForm({
     defaultValues: {
@@ -101,21 +101,19 @@ function MessageDetails({ open, onClose }) {
       title="Message Details"
       isOpen={open}
       onClose={handleClose}
-      modalStyle="w-250! "
-      headerStyle="border-light-gray"
-    >
+      modalStyle="w-250!">
       <div>
         <div className="pl-6 pt-3.5 pb-6 pr-3.5 mt-6 rounded-xl bg-[#EFF6FF]">
           <div className="flex w-full justify-between">
             <div className="items-center pl-4">
               <p className="text-lg text-text-dark-gray font-semibold">
                 Hamid Khan{' '}
-                <span className="text-base text-text-more-light-gray font-normal">
+                <span className="text-base text-[#6B7280] font-normal">
                   (Patient)
                 </span>
               </p>
-              <p className="text-sm text-text-more-light-gray mt-1">Other</p>
-              <p className="text-sm text-text-more-light-gray mt-1">
+              <p className="text-sm text-[#5F5F5F] mt-1">Other</p>
+              <p className="text-sm text-[#6B7280] mt-1">
                 Jan 15, 2025 • 10:30 AM
               </p>
             </div>
@@ -131,8 +129,8 @@ function MessageDetails({ open, onClose }) {
           </p>
           <div className="flex mt-6 gap-3 flex-wrap">
             {[
-              { name: 'medical_history.pdf', type: 'pdf' },
-              { name: 'xray_image.png', type: 'image' },
+              {name: 'medical_history.pdf', type: 'pdf'},
+              {name: 'xray_image.png', type: 'image'},
             ].map((file, index) => (
               <div
                 key={index}
@@ -155,7 +153,7 @@ function MessageDetails({ open, onClose }) {
           ))}
         </div>
 
-        <hr className="-mx-6 border-border border-light-gray" />
+        <hr className="-mx-6 border-border" />
 
         <div className="flex min-h-25! justify-between gap-4 mt-6">
           <div className="flex-1">
@@ -163,7 +161,7 @@ function MessageDetails({ open, onClose }) {
               placeholder="Type your reply..."
               name="reply"
               control={control}
-              textAreaClassName="max-h-25! border-light-gray"
+              textAreaClassName="max-h-25!"
             />
             {!!selectedAttachments.length && (
               <div className="flex flex-wrap gap-2 pb-5">
@@ -196,7 +194,7 @@ function MessageDetails({ open, onClose }) {
               name="attachments"
               control={control}
               defaultValue={[]}
-              render={({ field }) => (
+              render={({field}) => (
                 <>
                   {/* Hidden input */}
                   <input
@@ -213,14 +211,14 @@ function MessageDetails({ open, onClose }) {
                   />
 
                   <Button
-                    className="flex items-center px-3.5! py-2! border-border! font-normal! text-text-dark-gray! border-light-gray!"
+                    className="flex items-center px-3.5! py-2! border-border! font-normal! text-text-dark-gray!"
                     variant="secondary"
                     onClick={() => {
                       if (!inputRef.current) return;
                       inputRef.current.click();
                     }}>
                     <Attachment className="h-4 w-4" />
-                    <span className="ml-2 ">Attach File</span>
+                    <span className="ml-2">Attach File</span>
                   </Button>
                 </>
               )}

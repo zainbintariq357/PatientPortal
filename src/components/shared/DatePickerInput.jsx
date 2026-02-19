@@ -46,7 +46,7 @@ const DatePickerInput = ({
     <div className={`relative ${wrapperClassName}`}>
       {!value && placeholder && (
         <span
-          className={`absolute left-4 ${conditionalStyle}  text-gray-400 pointer-events-none`}>
+          className={`absolute left-4 ${conditionalStyle}  text-placeholder pointer-events-none`}>
           {placeholder}
           {showAsterisks && <span className="text-red-500"> *</span>}
         </span>
@@ -64,7 +64,7 @@ const DatePickerInput = ({
         name={name}
         control={control}
         rules={rules}
-        render={({ field }) => (
+        render={({field}) => (
           <div className="relative w-full">
             <DatePicker
               placeholderText={placeholderText}
@@ -78,12 +78,12 @@ const DatePickerInput = ({
                 field.onChange(date);
                 setIsOpen(false);
               }}
-              className={`w-full h-12 border border-white-gray rounded-lg px-4 focus:outline-none items-center ${datePickerClassName}`}
+              className={`w-full h-12 border border-white-gray text-white-gray rounded-lg px-4 focus:outline-none items-center ${datePickerClassName}`}
               wrapperClassName="w-full"
             />
             {field.value ? (
               <button
-                type='button'
+                type="button"
                 onClick={() => {
                   field.onChange(null);
                   setIsOpen(false);
@@ -93,7 +93,7 @@ const DatePickerInput = ({
               </button>
             ) : (
               <button
-                type='button'
+                type="button"
                 onClick={() => setIsOpen(true)}
                 className="absolute top-1/2 right-3 -translate-y-1/2 w-5 h-4 cursor-pointer opacity-70 hover:opacity-100">
                 <CalenderIcon />

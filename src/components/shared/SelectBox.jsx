@@ -1,6 +1,5 @@
 import { useWatch } from 'react-hook-form';
 import DropdownIcon from '../../assets/icons/svgs/DropdownIcon';
-
 const SelectBox = ({
   placeholder = false,
   label,
@@ -20,11 +19,14 @@ const SelectBox = ({
 }) => {
   const value = useWatch({ control, name });
   const showAsteriks = !value;
+  const conditionalStyle =
+    label && !error ? 'top-[55%]' : label ? 'top-[41%]' : 'translate-y-1/2';
 
   return (
-    <div className='relative'>
-      {(!value && placeholder) && (
-        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+    <div className={`relative ${wrapperClassName}`}>
+      {!value && placeholder && (
+        <span
+          className={`absolute left-4 ${conditionalStyle} text-gray-400 pointer-events-none`}>
           {placeholder}
           {showAsteriks && <span className="text-red-500"> *</span>}
         </span>
@@ -37,32 +39,30 @@ const SelectBox = ({
           {rules && <span className="text-danger"> *</span>}
         </h6>
       )}
-
-      <select
-        {...register(name, rules)}
-        defaultValue=""
-        className={`w-full h-12 border rounded-lg px-4 focus:outline-none appearance-none cursor-pointer ${error ? 'border-red-500' : 'border-gray-300'
+      <div className="relative">
+        <select
+          {...register(name, rules)}
+          defaultValue=""
+          className={`w-full h-12 border text-white-gray rounded-lg px-4 focus:outline-none appearance-none cursor-pointer ${
+            error ? 'border-red-500' : 'border-gray-300'
           } ${selectClassName}`}
-        disabled={disabled}
-        {...rest}
-      >
-        {selectDefaultValue && <option value="">{selectDefaultValue}</option>}
+          disabled={disabled}
+          {...rest}>
+          {selectDefaultValue && <option value="">{selectDefaultValue}</option>}
 
-        {options.map((item, index) => (
-          <option key={index} value={item.value}>
-            {item.label}
-          </option>
-        ))}
-      </select>
-      <span
-        className={`absolute right-3 -translate-y-1/2 ${label ? 'top-2/3' : 'top-1/2'}  pointer-events-none`}>
-        <DropdownIcon width="15" height='14' />
-      </span>
-
-
+          {options.map((item, index) => (
+            <option key={index} value={item.value}>
+              {item.label}
+            </option>
+          ))}
+        </select>
+        <span className="absolute top-1/2 right-3 -translate-y-1/2  pointer-events-none cursor-pointer">
+          <DropdownIcon width="15" height="14" className="text-white-gray" />
+        </span>
+      </div>
 
       {error && <span className="text-red-500 text-sm">{error.message}</span>}
-    </div >
+    </div>
   );
 };
 

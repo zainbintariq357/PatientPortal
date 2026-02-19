@@ -1,5 +1,5 @@
-import { useCallback, useRef } from 'react';
-import { Controller, useForm } from 'react-hook-form';
+import {useCallback, useRef} from 'react';
+import {Controller, useForm} from 'react-hook-form';
 import SELECT_OPTIONS from '../../Constants';
 import Button from '../shared/Button';
 import PopupWrapper from '../shared/PopupWrapper';
@@ -9,7 +9,7 @@ import TextArea from '../shared/TextArea';
 import AttachmentIcon from '../../assets/icons/svgs/Attachment';
 import Cross from '../../assets/icons/svgs/Cross';
 
-function CreateMessagePopup({ open, onClose }) {
+function CreateMessagePopup({open, onClose}) {
   const inputRef = useRef(null);
 
   const {
@@ -17,7 +17,7 @@ function CreateMessagePopup({ open, onClose }) {
     control,
     handleSubmit,
     reset,
-    formState: { isSubmitting, isValid },
+    formState: {isSubmitting, isValid},
   } = useForm({
     defaultValues: {
       messageType: '',
@@ -47,10 +47,8 @@ function CreateMessagePopup({ open, onClose }) {
       title="Create Message"
       isOpen={open}
       onClose={handleClose}
-      modalStyle="max-w-200"
-      headerStyle='border-light-gray'
-    >
-      <div className="mt-3 flex items-center">
+      modalStyle="max-w-200">
+      <div className="mt-3 flex items-stretch mt-12">
         <div className="w-[45%] min-w-50">
           <SelectBox
             options={SELECT_OPTIONS.messageTypeOptions}
@@ -59,11 +57,10 @@ function CreateMessagePopup({ open, onClose }) {
             control={control}
             name="messageType"
             register={register}
-            labelClassName="text-sm mt-12"
-            placeHolder={false}
+            labelClassName="text-sm"
           />
         </div>
-        <div className="flex items-center ml-10">
+        <div className="flex items-center ml-10 mt-7">
           <Switch control={control} name="urgent" />
           <span className="text-sm text-text-gray font-medium ml-5">
             Mark as Urgent
@@ -80,7 +77,6 @@ function CreateMessagePopup({ open, onClose }) {
         maxCharacters={1000}
         wrapperClassName="mt-8"
         labelClassName="text-sm"
-        textAreaClassName='border-light-gray'
       />
 
       <p className="text-sm text-text-gray font-medium mt-8 mb-3">
@@ -91,7 +87,7 @@ function CreateMessagePopup({ open, onClose }) {
           name="attachments"
           control={control}
           defaultValue={[]}
-          render={({ field }) => (
+          render={({field}) => (
             <>
               {/* Hidden input */}
               <input
@@ -118,7 +114,7 @@ function CreateMessagePopup({ open, onClose }) {
                 <div className="flex flex-col items-center gap-2">
                   <div className="flex items-center gap-2">
                     <AttachmentIcon className="w-4 h-4" color={'#9CA3AF'} />
-                    <p className="text-text-gray text-sm">
+                    <p className="text-[#4B5563] text-sm">
                       Attach files (TIF, JPG, BMP, PDF up to 10MB)
                     </p>
                   </div>

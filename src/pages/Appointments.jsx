@@ -1,13 +1,14 @@
 import React, { useRef, useState } from 'react';
+
 import ReloadIcon from '../assets/reloadIcon.svg?react';
 import RequestedAppointments from '../components/Appointments/RequestedAppointments';
 import SELECT_OPTIONS from '../Constants';
 import PrevIcon from '../assets/prevIcon.svg?react';
-import NextIcon from '../assets/nextIcon.svg?react';
+import NextIcon from '../assets/NextIcon.svg?react';
 import RequestAppointment from '../components/popup/RequestAppointment';
-import OfficeVisitScheduleAppointment from '../components/popup/OfficeVisitScheduleAppointment';
-import ScheduleAppointment from '../components/popup/ScheduleAppointment';
 import Toast from '../components/toast/Toast';
+import ScheduleAppointment from '../components/popup/ScheduleAppointment';
+import OfficeVisitScheduleAppointment from '../components/popup/OfficeVisitScheduleAppointment';
 
 const Appointments = () => {
 
@@ -16,6 +17,7 @@ const Appointments = () => {
 	const [isRequestedAppointments, setIsRequestedAppointments] = useState(false);
 	const [isTeleVisitAppointments, setIsTeleVisitAppointments] = useState(false);
 	const [isScheduleAppointments, setIsScheduleAppointments] = useState(false);
+
 	const [warning, setWarning] = useState(false);
 	const [selectedAppointment, setSelectedAppointment] = useState(null);
 	const { requestedAppointmentsData, upCommingAppointmentsData, pastAppointmentsData } = SELECT_OPTIONS;
@@ -39,6 +41,12 @@ const Appointments = () => {
 
 	}
 
+	const closeWarning = (appointment) => {
+		setWarning(false);
+		setSelectedAppointment(appointment);
+		console.log("the selected appointment is", appointment);
+	}
+
 	const ShowCalenderPopup = (show) => {
 		if (show) {
 			setIsScheduleAppointments(false);
@@ -50,82 +58,115 @@ const Appointments = () => {
 
 
 	return (
-		<div className='min-h-screen relative flex flex-col' ref={warningRef}>
-			{
-				warning && <div className='fixed sm:static md:absolute top-6 left-2/5 transform -translate-x-1/2 z-50 '>
-					<Toast message='Are you sure you want to cancel the appointment request?' type="Warning" onClose={() => setWarning(false)} />
-				</div>
-			}
+    <div className="min-h-screen relative flex flex-col" ref={warningRef}>
+      {warning && (
+        <div className="fixed sm:static md:absolute top-6 left-2/5 transform -translate-x-1/2 z-50 ">
+          <Toast
+            type={'Warning'}
+            message={'Are you sure you want to cancel this appointment?'}
+            onClickYes={() => closeWarning(selectedAppointment)}
+          />
+        </div>
+      )}
 
-			<RequestAppointment open={isRequestedAppointments} onClose={() => setIsRequestedAppointments(false)} />
+      <RequestAppointment
+        open={isRequestedAppointments}
+        onClose={() => setIsRequestedAppointments(false)}
+      />
 
-			<ScheduleAppointment open={isScheduleAppointments} onClose={(show) => ShowCalenderPopup(show)} />
+      <ScheduleAppointment
+        open={isScheduleAppointments}
+        onClose={show => ShowCalenderPopup(show)}
+      />
 
-			<OfficeVisitScheduleAppointment open={isTeleVisitAppointments} onClose={() => setIsTeleVisitAppointments(false)} />
+      <OfficeVisitScheduleAppointment
+        open={isTeleVisitAppointments}
+        onClose={() => setIsTeleVisitAppointments(false)}
+      />
 
-			<div className="flex gap-2 justify-between bg-[var(--color-light-gray)] items-center p-4 border-b border-gray-300 p-4 mt-12 overflow-x-auto scrollbar-hide">
-				<div>
-					{
-						tabs.map(({ title, index }) => (
-							<button
-								key={index}
-								className={` ${buttonclass} ${appointmentType === title ? ' font-bold text-blue bg-white text-xs sm:text-sm md:text-base ' : ''}`}
-								onClick={() => setAppointmentType(title)}> {title}
-								<span className={` ${spanclass} ${appointmentType === title ? ' bg-light-blue' : 'bg-white'} text-xs sm:text-sm md:text-base`}>8</span>
-							</button>
-						))
-					}
-				</div>
-				<div className='flex flex-row sm:items-center gap-5'>
-					<div className='flex items-center '>
-						<ReloadIcon className="w-4 h-4 cursor-pointer" />
-					</div>
-					<button className=" w-full sm:w-auto px-4 py-2 bg-blue-500 text-white cursor-pointer rounded-full text-xs sm:text-sm md:text-base" onClick={() => setIsRequestedAppointments(true)}> Request Appointment </button>
-					<button className=" w-full sm:w-auto px-4 py-2 bg-blue-500 text-white cursor-pointer rounded-full text-xs sm:text-sm md:text-base" onClick={() => setIsScheduleAppointments(true)}>  Schedule Appointment </button>
-				</div>
-			</div>
+      <div className="flex gap-2 justify-between bg-[#F3F4F6] items-center p-4 border-b border-gray-300 p-4 mt-12 overflow-x-auto scrollbar-hide">
+        <div>
+          {tabs.map(({title, index}) => (
+            <button
+              key={index}
+              className={` ${buttonclass} ${appointmentType === title ? ' font-bold text-blue bg-white text-xs sm:text-sm md:text-base ' : 'text-[#6B7280]'}`}
+              onClick={() => setAppointmentType(title)}>
+              {' '}
+              {title}
+              <span
+                className={` ${spanclass} ${appointmentType === title ? ' bg-light-blue' : 'bg-white'} text-xs sm:text-sm md:text-base`}>
+                8
+              </span>
+            </button>
+          ))}
+        </div>
+        <div className="flex flex-row sm:items-center gap-5">
+          <div className="flex items-center ">
+            <ReloadIcon className="w-4 h-4 cursor-pointer" />
+          </div>
+          <button
+            className=" w-full sm:w-auto px-4 py-2 bg-primary text-white cursor-pointer rounded-full text-xs sm:text-sm md:text-base"
+            onClick={() => setIsRequestedAppointments(true)}>
+            {' '}
+            Request Appointment{' '}
+          </button>
+          <button
+            className=" w-full sm:w-auto px-4 py-2 bg-primary text-white cursor-pointer rounded-full text-xs sm:text-sm md:text-base"
+            onClick={() => setIsScheduleAppointments(true)}>
+            {' '}
+            Schedule Appointment{' '}
+          </button>
+        </div>
+      </div>
 
-			<div className='flex-1'>
-				<RequestedAppointments onCancelRequest={onCancelRequest} appointmentsData={appointmentType == "Requested" ? requestedAppointmentsData : appointmentType == "Upcoming" ? upCommingAppointmentsData : pastAppointmentsData} />
-			</div>
+      <div className="flex-1">
+        <RequestedAppointments
+          onCancelRequest={onCancelRequest}
+          appointmentsData={
+            appointmentType == 'Requested'
+              ? requestedAppointmentsData
+              : appointmentType == 'Upcoming'
+                ? upCommingAppointmentsData
+                : pastAppointmentsData
+          }
+        />
+      </div>
 
+      <div className="flex items-center justify-between mt-6 text-sm text-gray-60 mt-auto mb-6">
+        <div className="pl-5">
+          Showing <span className="text-gray-text">1–6</span> of{' '}
+          <span className="text-gray-text">6</span> messages
+        </div>
 
-			<div className="flex items-center justify-between mt-6 text-sm text-gray-60 mt-auto mb-6">
+        <div className="flex items-center gap-2 px-6">
+          <button className="px-3 py-2 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">
+            <PrevIcon className=" w-2 h-3" />
+          </button>
+          <button className="px-3 py-1 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">
+            1
+          </button>
+          <button className="px-3 py-1 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">
+            2
+          </button>
+          <button className="px-3 py-1 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">
+            3
+          </button>
 
-				<div className='pl-5'>
-					Showing <span className="text-gray-text">1–6</span> of{" "}
-					<span className="text-gray-text">6</span> messages
-				</div>
+          <span className="px-2 cursor-pointer">…</span>
 
-				<div className="flex items-center gap-2 px-6">
-					<button className="px-3 py-2 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">
-						<PrevIcon className=" w-2 h-3" />
-					</button>
-					<button className="px-3 py-1 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">
-						1
-					</button>
-					<button className="px-3 py-1 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">
-						2
-					</button>
-					<button className="px-3 py-1 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">
-						3
-					</button>
-
-					<span className="px-2 cursor-pointer">…</span>
-
-					<button className="px-3 py-1 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">
-						8
-					</button>
-					<button className="px-3 py-1 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">
-						9
-					</button>
-					<button className="px-3 py-2 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">
-						<NextIcon className=" w-2 h-3" />
-					</button>
-				</div>
-			</div>
-		</div>
-	)
+          <button className="px-3 py-1 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">
+            8
+          </button>
+          <button className="px-3 py-1 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">
+            9
+          </button>
+          <button className="px-3 py-2 rounded border border-gray-300 hover:bg-gray-100 cursor-pointer">
+            <NextIcon className=" w-2 h-3" />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Appointments;

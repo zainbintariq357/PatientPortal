@@ -1,5 +1,5 @@
-import { useCallback, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import {useCallback, useState} from 'react';
+import {useForm} from 'react-hook-form';
 import SELECT_OPTIONS from '../../Constants';
 import Button from '../shared/Button';
 import PopupWrapper from '../shared/PopupWrapper';
@@ -16,18 +16,18 @@ const tabs = {
   teleVisit: 'Tele Visit',
 };
 const preferredTimeOptions = [
-  { label: 'Anytime', value: 'anytime' },
-  { label: 'Morning', value: 'morning' },
-  { label: 'Afternoon/Evening', value: 'afternoon/evening' },
+  {label: 'Anytime', value: 'anytime'},
+  {label: 'Morning', value: 'morning'},
+  {label: 'Afternoon/Evening', value: 'afternoon/evening'},
 ];
 
-const SectionTitle = ({ title, showSteric = true }) => (
+const SectionTitle = ({title, showSteric = true}) => (
   <p className="text-lg font-medium mt-10 mb-4 text-text-gray">
     {title} {showSteric && <span className="text-danger"> *</span>}
   </p>
 );
 
-function RequestAppointment({ open, onClose }) {
+function RequestAppointment({open, onClose}) {
   const [activeTab, setActiveTab] = useState(tabs?.officeVisit); // teleVisit
 
   const {
@@ -35,10 +35,10 @@ function RequestAppointment({ open, onClose }) {
     control,
     handleSubmit,
     reset,
-    formState: { isSubmitting, isValid, errors },
+    formState: {isSubmitting, isValid, errors},
   } = useForm({
     defaultValues: {
-      appointmentDate: '',
+      appointmentDate: null,
       reasonForVisit: '',
       preferredTime: [],
       flexibleWithDate: false,
@@ -64,14 +64,15 @@ function RequestAppointment({ open, onClose }) {
     setActiveTab(tab);
   }, []);
 
-  const Tabs = ({ options, activeTab, onTabClick }) => (
-    <div className="flex flex-row w-full gap-4 p-1 mt-8 bg-gray-200 rounded-lg">
+  const Tabs = ({options, activeTab, onTabClick}) => (
+    <div className="flex flex-row w-full gap-4 p-1 mt-8 bg-[#F3F3F3] rounded-lg">
       {Object.values(options).map(tab => (
         <button
           key={tab}
           onClick={() => onTabClick(tab)}
-          className={`px-3 py-2.5 rounded-lg text-lg font-semibold cursor-pointer ${activeTab === tab ? activeTabStyles : inactiveTabStyles
-            }`}>
+          className={`px-3 py-2.5 rounded-lg text-lg font-semibold ${
+            activeTab === tab ? activeTabStyles : inactiveTabStyles
+          }`}>
           {tab}
         </button>
       ))}
@@ -85,8 +86,8 @@ function RequestAppointment({ open, onClose }) {
       title="Request Appointment"
       isOpen={open}
       onClose={handleClose}
-      headerStyle="py-7 border-light-gray"
-      titleClassName="text-primary"
+      headerStyle="py-7"
+      titleClassName="text-[#1F2937]"
       modalStyle="max-w-200">
       <Tabs options={tabs} activeTab={activeTab} onTabClick={handleTabClick} />
 
@@ -99,16 +100,16 @@ function RequestAppointment({ open, onClose }) {
             required: 'Appointment Date is required',
           }}
           error={errors['appointmentDate']}
-          datePickerClassName="border-light-gray!"
         />
       </div>
 
       <div>
         <SelectBox
+          label={'Reason For Visit'}
           options={SELECT_OPTIONS.reasonForVisitOptions}
-          label="Reason for Visit"
           id="reasonForVisit"
           control={control}
+          showAsterisks={true}
           name="reasonForVisit"
           register={register}
           rules={{
@@ -117,7 +118,6 @@ function RequestAppointment({ open, onClose }) {
           error={errors['reasonForVisit']}
           wrapperClassName="mt-8"
           labelClassName="text-lg font-medium"
-          placeHolder={false}
         />
       </div>
 
@@ -146,7 +146,7 @@ function RequestAppointment({ open, onClose }) {
         name="additionalNotes"
         control={control}
         error={errors['additionalNotes']}
-        textAreaClassName="h-32! border-light-gray"
+        textAreaClassName="h-32!"
         wrapperClassName="mt-8!"
       />
 

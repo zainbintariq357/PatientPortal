@@ -19,14 +19,15 @@ function PopupWrapper({
 
       {/* Modal box */}
       <div
-        className={`relative bg-white rounded-2xl p-6 w-3xl max-h-[80vh] overflow-y-auto ${modalStyle}`}>
+        className={`relative bg-white rounded-2xl p-6 w-3xl max-h-[90vh] overflow-y-auto ${modalStyle}`}>
         <div
           className={`flex justify-between -mt-6 -mx-6 px-6 py-4 border-b border-border ${headerStyle}`}>
-          <h2 className={`text-2xl font-semibold ${titleClassName}`}>
+          <h2
+            className={`text-2xl font-semibold text-[#1F2937] ${titleClassName}`}>
             {title}
           </h2>
           <button onClick={onClose} className="cursor-pointer">
-            <CrossIcon className="w-4 h-4 mt-1.5 text-gray-text" />
+            <CrossIcon className="mt-1.5 text-[#9CA3AF] w-4 h-4" />
           </button>
         </div>
         {children}

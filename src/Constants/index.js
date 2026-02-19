@@ -189,7 +189,8 @@ const SELECT_OPTIONS = {
       rules: {
         required: 'First Name is required',
       },
-      length: 30,
+      length: 15,
+      className: 'border-white-gray!',
     },
     {
       type: 'input',
@@ -198,7 +199,8 @@ const SELECT_OPTIONS = {
       rules: {
         required: 'Last Name is required',
       },
-      length: 30,
+      length: 15,
+      className: 'border-white-gray!',
     },
 
     {
@@ -208,6 +210,7 @@ const SELECT_OPTIONS = {
       rules: {
         required: 'Date of Birth is required',
       },
+      className: 'border-white-gray! placeholder:text-[#ADAEBC]!',
     },
 
     {
@@ -218,7 +221,7 @@ const SELECT_OPTIONS = {
         required: 'Gender is required',
       },
       options: genderOptions,
-      className: 'border-white-gray',
+      className: 'border-white-gray!',
     },
 
     {
@@ -228,7 +231,8 @@ const SELECT_OPTIONS = {
       rules: {
         required: 'Cell is required',
       },
-      length: 20,
+      length: 15,
+      className: 'border-white-gray!',
     },
     {
       type: 'input',
@@ -241,7 +245,8 @@ const SELECT_OPTIONS = {
           message: 'Invalid email address',
         },
       },
-      length: 30,
+      length: 15,
+      className: 'border-white-gray!',
     },
 
     {
@@ -251,7 +256,8 @@ const SELECT_OPTIONS = {
       rules: {
         required: 'Address is required',
       },
-      length: 60,
+      length: 20,
+      className: 'border-white-gray!',
     },
   ],
   messageTypeOptions: [
@@ -330,7 +336,8 @@ const SELECT_OPTIONS = {
       rules: {
         required: 'First Name is required',
       },
-      length: 30,
+      length: 20,
+      className: 'border-white-gray!',
     },
     {
       type: 'input',
@@ -339,7 +346,8 @@ const SELECT_OPTIONS = {
       rules: {
         required: 'Last Name is required',
       },
-      length: 30,
+      length: 20,
+      className: 'border-white-gray!',
     },
 
     {
@@ -349,6 +357,7 @@ const SELECT_OPTIONS = {
       rules: {
         required: 'Date of Birth is required',
       },
+      className: 'border-white-gray!',
     },
 
     {
@@ -358,7 +367,8 @@ const SELECT_OPTIONS = {
       rules: {
         required: 'Zip is required',
       },
-      length: 60,
+      length: 10,
+      className: 'border-white-gray!',
     },
 
     {
@@ -368,7 +378,8 @@ const SELECT_OPTIONS = {
       rules: {
         required: 'Cell is required',
       },
-      length: 20,
+      length: 15,
+      className: 'border-white-gray!',
     },
     {
       type: 'input',
@@ -381,7 +392,8 @@ const SELECT_OPTIONS = {
           message: 'Invalid email address',
         },
       },
-      length: 30,
+      length: 20,
+      className: 'border-white-gray!',
     },
   ],
 

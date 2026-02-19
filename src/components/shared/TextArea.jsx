@@ -18,7 +18,7 @@ function TextArea({
     <div className={`w-full ${wrapperClassName}`}>
       {label && (
         <span
-          className={`block mb-2 font-medium text-gray-700 ${labelClassName}`}>
+          className={`block mb-2 font-medium text-text-gray ${labelClassName}`}>
           {label}
           {rules && <span className="text-danger"> *</span>}
         </span>
@@ -39,7 +39,7 @@ function TextArea({
               />
               {/* character counter */}
               {showCharacterCount && (
-                <div className="absolute bottom-2 right-5 text-sm text-text-light-gray">
+                <div className="absolute bottom-2 right-5 text-sm text-[#9CA3AF]">
                   {field.value?.length || 0} / {maxCharacters}
                 </div>
               )}

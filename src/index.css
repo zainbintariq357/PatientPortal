@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-blue: #2563eb;
@@ -10,11 +10,11 @@
   --color-sidebar-blue: #eff6ff;
   --color-red: #dc2626;
   --color-light-gray: #e5e7eb;
-  --color-blue-medium: #4284DB;
-  --color-white-gray : #676D75;
-  --color-light-blue : #DBEAFE;	
-  --color-cream-yellow : #FFF8E1;
-  --color-deep-orange : #F59E0B;
+  --color-blue-medium: #4284db;
+  --color-white-gray: #676d75;
+  --color-light-blue: #dbeafe;
+  --color-cream-yellow: #fff8e1;
+  --color-deep-orange: #f59e0b;
 
   /* text colors */
   --color-text-dark-gray: #1f2937;
@@ -30,11 +30,11 @@
   --color-danger: #dc2626;
   --color-success: #22c55e;
   --color-warning: #eab308;
-  --color-text-yellow: #F1B434;
-  
-  --color-border: #e5e7eb;
-}
+  --color-text-yellow: #f1b434;
 
+  --color-border: #e5e7eb;
+  --color-placeholder: #ADAEBC;
+}
 
 .Toastify__toast-container--top-center {
   top: 25% !important;
@@ -50,4 +50,14 @@
 /* Remove default padding */
 .confirm-toast-body {
   padding: 0 !important;
+}
+
+textarea::placeholder {
+  color: #ADAEBC;
+}
+
+@layer components {
+  .react-datepicker__input-container input::placeholder {
+    @apply text-placeholder;
+  }
 }
