@@ -4,7 +4,7 @@ import ReloadIcon from '../assets/reloadIcon.svg?react';
 import RequestedAppointments from '../components/Appointments/RequestedAppointments';
 import SELECT_OPTIONS from '../Constants';
 import PrevIcon from '../assets/prevIcon.svg?react';
-import NextIcon from '../assets/NextIcon.svg?react';
+import NextIcon from '../assets/nextIcon.svg?react';
 import RequestAppointment from '../components/popup/RequestAppointment';
 import Toast from '../components/toast/Toast';
 import ScheduleAppointment from '../components/popup/ScheduleAppointment';
